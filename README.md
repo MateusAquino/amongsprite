@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img src="./assets/README.png" align="center"></img>
+    <img src="https://github.com/MateusAquino/amongsprite/blob/main/assets/README.png" align="center"></img>
     <br/>AmongSprite
 </h1>
 <p align="center">Package for generating custom <strong>Among Us</strong> canvas.</p>
@@ -42,11 +42,18 @@ Working example bellow should generate the same image above (Rick Sprite).
 const AmongSprite = require('amongsprite');
 const { Types } = AmongSprite;
 
-const canvas = await AmongSprite.create(175, '#D6C9BD', Types.BG["PORTAL SPACE"], Types.HATS.RICK, Types.OUTFITS.RICK, Types.PETS.UFO);
+const canvas = await AmongSprite.create(
+	175, 
+	'#D6C9BD', 
+	Types.BG["PORTAL SPACE"], 
+	Types.HATS.RICK, 
+	Types.OUTFITS.RICK, 
+	Types.PETS.UFO
+);
 
 const fs = require('fs');
 fs.writeFileSync('./result.html', `<img src='${canvas.toDataURL()}'></img>`);
 ```
 
 ## ⚠️ Disclaimer
-This is an unofficial Among Us Sprite generator. The fan art is provided by [Among Us Avatar Maker](amongusavatarmaker.com) whereas [Innersloth](http://www.innersloth.com/gameAmongUs.php) owns all rights to Among Us.  
+This is an unofficial Among Us Sprite generator. The fan art is provided by [Among Us Avatar Maker](http://amongusavatarmaker.com) whereas [Innersloth](http://www.innersloth.com/gameAmongUs.php) owns all rights to Among Us.  
