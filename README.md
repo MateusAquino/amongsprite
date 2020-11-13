@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img src="https://github.com/MateusAquino/amongsprite/blob/main/assets/README.png" align="center"></img>
+    <img src="https://github.com/MateusAquino/amongsprite/blob/main/assets/README.png?raw=true" align="center"></img>
     <br/>AmongSprite
 </h1>
 <p align="center">Package for generating custom <strong>Among Us</strong> canvas.</p>
