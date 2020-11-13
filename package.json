@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Create among us sprites dinamically",
   "main": "index.js",
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "scripts": {
     "start": "node index.js",
     "test": "note test.js"
@@ -13,7 +14,6 @@
     "sprite"
   ],
   "author": "Mateus Aquino",
-  "license": "",
   "dependencies": {
     "canvas": "^2.6.1"
   }

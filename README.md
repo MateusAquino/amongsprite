@@ -16,13 +16,19 @@
   </a>
 </p>
 
+## 🚀 Install
+Simply run:
+```bash
+npm install amongsprite
+```
+
 ## 📟 How to Use
 Check the [assets](./assets/) for the name of Backgrounds, hats, outfits and pets.
 
 #### Syntax
 • `resolution` in pixels  
 • `hexColor` should be a 6-digit hex code (eg. `#000000`)  
-• Other params should be valid names from assets.
+• Other params should be valid names from assets.  
 Note: Alternatively, you may import `const { Types } = AmongSprite` for better content assistant.
 ```js
 const AmongSprite = require('amongsprite')
