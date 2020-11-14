@@ -56,7 +56,6 @@ async function load(resolution, color, rawImages) {
 	
 	for (let url of images) {
 		if (!url) continue;
-		console.log(url)
 		const absolutePath = url.startsWith('./assets') ? path.join(__dirname, ...url.substr(1).split('/')) : url;
 		try {
 			const image = await loadImage(absolutePath);
