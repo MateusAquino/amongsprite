@@ -1,4 +1,5 @@
 const { createCanvas, loadImage } = require("canvas");
+var path = require('path');
 
 function shadeColor(color, percent) {
 	let [R, G, B] = hexToRGB(color);
@@ -51,11 +52,12 @@ async function load(resolution, color, images) {
 	for (let url of images) {
 		if (!url) continue;
 		try {
-			const image = await loadImage(url);
+			const absolutePath = path.join(__dirname, ...url.substr(1).split('/'));
+			const image = await loadImage(absolutePath);
 			const offset = url.includes('/assets/PETS/') ? 40 : 0;
 			ctx.drawImage(image, -offset, offset/2);
 		} catch(err) {
-			throw new ReferenceError('Asset does not exists: ' + url)
+			throw new ReferenceError('Asset does not exists: ' + absolutePath)
 		}
 	}
 
