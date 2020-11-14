@@ -11,7 +11,7 @@
   <a aria-label="NPM version" href="https://badge.fury.io/js/amongsprite">
     <img src="https://badge.fury.io/js/amongsprite.svg"></img>
   </a>
-  <a aria-label="Original Among Avatar Maker Art" href="amongusavatarmaker.com">
+  <a aria-label="Original Among Avatar Maker Art" href="https://amongusavatarmaker.com">
     <img src="https://img.shields.io/badge/Among%20Avatar%20Maker-art-success"></img>
   </a>
 </p>
@@ -26,9 +26,12 @@ npm install amongsprite
 Check the [assets](./assets/) for the name of Backgrounds, hats, outfits and pets.
 
 #### Syntax
-• `resolution` in pixels  
+• `resolution` in pixels (looks nicer if < 600)  
 • `hexColor` should be a 6-digit hex code (eg. `#000000`)  
-• Other params should be valid names from assets.  
+• Other params should be valid names from assets **OR** an url to a custom image (use 600x600).  
+• If you use are using a custom image:  
+ ↳ `#123456` will be replaced with the main color  
+ ↳ `#654321` will be replaced with the shadow.  
 Note: Alternatively, you may import `const { Types } = AmongSprite` for better content assistant.
 ```js
 const AmongSprite = require('amongsprite')
@@ -45,7 +48,7 @@ const { Types } = AmongSprite;
 const canvas = await AmongSprite.create(
 	175, 
 	'#D6C9BD', 
-	Types.BG["PORTAL SPACE"], 
+	Types.BG.PORTAL_SPACE, 
 	Types.HATS.RICK, 
 	Types.OUTFITS.RICK, 
 	Types.PETS.UFO
@@ -56,4 +59,4 @@ fs.writeFileSync('./result.html', `<img src='${canvas.toDataURL()}'></img>`);
 ```
 
 ## ⚠️ Disclaimer
-This is an unofficial Among Us Sprite generator. The fan art is provided by [Among Us Avatar Maker](http://amongusavatarmaker.com) whereas [Innersloth](http://www.innersloth.com/gameAmongUs.php) owns all rights to Among Us.  
+This is an unofficial Among Us Sprite generator. The fan art is provided by [Among Us Avatar Maker](https://amongusavatarmaker.com) whereas [Innersloth](http://www.innersloth.com/gameAmongUs.php) owns all rights to Among Us.  
