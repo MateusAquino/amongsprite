@@ -11,16 +11,16 @@ class AmongSprite {
         }
     }
     
-    create = async (resolution=600, playerColor, bgName, hatName = undefined, outfitName = undefined, petName = undefined) => {
+    create = async (resolution=600, playerColor, bgName, hatName = undefined, outfitName = undefined, petName = undefined, ...overlays) => {
         if (bgName===undefined || playerColor===undefined)
             throw new ReferenceError('Background and Player Color must not be undefined.');
 
         const basePlayer = `./assets/PLAYER/BASE.png`;
-        bgName = `./assets/BG/${bgName}.png`;
-        hatName = hatName ? `./assets/HATS/${hatName}.png` : hatName;
-        outfitName = outfitName ? `./assets/OUTFITS/${outfitName}.png` : outfitName;
-        petName = petName ? `./assets/PETS/${petName}.png` : petName;
-        return await canvas(resolution, playerColor, bgName, basePlayer, hatName, outfitName, petName);
+        bgName = this.Types.BG[bgName] ? `./assets/BG/${bgName}.png` : bgName;
+        hatName = this.Types.HATS[hatName] ? `./assets/HATS/${hatName}.png` : hatName;
+        outfitName = this.Types.OUTFITS[outfitName] ? `./assets/OUTFITS/${outfitName}.png` : outfitName;
+        petName = this.Types.PETS[petName] ? `./assets/PETS/${petName}.png` : petName;
+        return await canvas(resolution, playerColor, bgName, basePlayer, hatName, outfitName, petName, overlays)
     }
     
     getBackground = async bgName => {

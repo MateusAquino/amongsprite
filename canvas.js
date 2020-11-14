@@ -45,16 +45,22 @@ function replaceColor(context, oldColor, newColor) {
 	context.putImageData(imageData, 0, 0);
 }
 
-async function load(resolution, color, images) {
+async function load(resolution, color, rawImages) {
 	const canvas = createCanvas(600, 600);
 	const ctx = canvas.getContext("2d");
-
+	const images = [];
+	rawImages.forEach(el=>{
+		if (Array.isArray(el)) el.forEach(x=>images.push(x)) 
+		else images.push(el);
+	});
+	
 	for (let url of images) {
 		if (!url) continue;
+		console.log(url)
+		const absolutePath = url.startsWith('./assets') ? path.join(__dirname, ...url.substr(1).split('/')) : url;
 		try {
-			const absolutePath = path.join(__dirname, ...url.substr(1).split('/'));
 			const image = await loadImage(absolutePath);
-			const offset = url.includes('/assets/PETS/') ? 40 : 0;
+			const offset = url.startsWith('./assets/PETS/') ? 40 : 0;
 			ctx.drawImage(image, -offset, offset/2);
 		} catch(err) {
 			throw new ReferenceError('Asset does not exists: ' + absolutePath)

@@ -1,6 +1,7 @@
 (async () => {
-    const AmongSprite = require('amongsprite') || require('./index');
+    let AmongSprite;
+    try { AmongSprite = require('amongsprite') } catch(err) { AmongSprite = require('./index') }
     const { Types } = AmongSprite;
 
-    await AmongSprite.create(175, '#D6C9BD', Types.BG["PORTAL SPACE"], Types.HATS.RICK, Types.OUTFITS.RICK, Types.PETS.UFO);
+    x = await AmongSprite.create(575, '#D6C9BD', Types.BG["PORTAL SPACE"], null, Types.OUTFITS.RICK, null);
 })();
